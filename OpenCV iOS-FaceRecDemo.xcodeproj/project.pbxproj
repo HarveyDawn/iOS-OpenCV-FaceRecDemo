@@ -344,7 +344,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCV iOS-FaceRecDemo/OpenCV iOS-FaceRecDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenCV iOS-FaceRecDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Harveyhw.OpenCV-iOS-FaceRecDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,7 +370,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCV iOS-FaceRecDemo/OpenCV iOS-FaceRecDemo-Prefix.pch";
 				INFOPLIST_FILE = "OpenCV iOS-FaceRecDemo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Harveyhw.OpenCV-iOS-FaceRecDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

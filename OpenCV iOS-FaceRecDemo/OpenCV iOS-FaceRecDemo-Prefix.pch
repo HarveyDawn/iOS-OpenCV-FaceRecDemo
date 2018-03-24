@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Harvey Huang. All rights reserved.
 //
 
-#import <Availability.h>
+//#import <Availability.h>
 #ifndef OpenCV_iOS_FaceRecDemo_Prefix_pch
 #define OpenCV_iOS_FaceRecDemo_Prefix_pch
 
@@ -14,8 +14,4 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif /* OpenCV_iOS_FaceRecDemo_Prefix_pch */
-
-#ifdef __cplusplus
-#import <opencv2/opencv.hpp>
-#endif
 

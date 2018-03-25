@@ -32,7 +32,6 @@
     NSString *modelPath = [self faceModelFilePath];
     self.faceModel = [HVFaceRecognizerUtil faceRecWithFile:modelPath];
     
-    
     if (_faceModel.labels.count == 0) {
         [_faceModel updateFace:_inputImage name:@"Person 1"];
     }
@@ -46,13 +45,13 @@
 
 - (NSString *)faceModelFilePath {
     NSString *modelPath = [NSString pathFromFlieName:@"face-model.xml"];
+    NSLog(@">>> modelPath[face-model.xml] = %@ ",modelPath);
     return modelPath;
 }
 
 
 - (IBAction)didTapCorrect:(id)sender {
     //Positive feedback for the correct prediction
-    
     [_faceModel updateFace:_inputImage name:_nameLabel.text];
     [_faceModel writeFaceRecParamatersToFile:[self faceModelFilePath]];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -60,7 +59,9 @@
 
 - (IBAction)didTapWrong:(id)sender {
     //Update our face model with the new person
-    NSString *name = [@"Person " stringByAppendingFormat:@"%lu", (unsigned long)_faceModel.labels.count];
+//    NSString *name = [@"Person " stringByAppendingFormat:@"%lu", (unsigned long)_faceModel.labels.count];
+    
+    NSString *name = @"至尊宝";
     [_faceModel updateFace:_inputImage name:name];
     [_faceModel writeFaceRecParamatersToFile:[self faceModelFilePath]];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

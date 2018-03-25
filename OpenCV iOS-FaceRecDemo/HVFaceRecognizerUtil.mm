@@ -23,7 +23,7 @@ using namespace face;
     Ptr< LBPHFaceRecognizer> _faceRecognizer;
 }
 
-@property (nonatomic,copy) NSMutableDictionary *labelsDic;
+@property (nonatomic,strong) NSMutableDictionary *labelsDic;
 
 @end
 
@@ -38,13 +38,13 @@ using namespace face;
     
     NSFileManager *fm = [NSFileManager defaultManager];
     
-    if (path && [fm fileExistsAtPath:path]) {
+    if (path && [fm fileExistsAtPath:path isDirectory:nil]) {
         
         [faceRec readFaceRecParamatersFromFile:path];
         
     }else
     {
-        faceRec.labelsDic = [NSMutableDictionary dictionary];
+        faceRec.labelsDic = [[NSMutableDictionary alloc]init];
         NSLog(@"could not load paramaters file: %@", path);
     }
     return faceRec;
@@ -81,7 +81,7 @@ using namespace face;
 - (NSString *)predict:(UIImage *)image confidence:(double *)confidence
 {
     //原图转成灰度图
-    cv::Mat src = [UIImage cvMatFromUIImage:image];
+    cv::Mat src = [UIImage cvMatGrayFromUIImage:image];
     int label;
     
     //@param src:样本图像得到一个预测。
@@ -96,7 +96,7 @@ using namespace face;
 - (void)updateFace:(UIImage *)faceImg name:(NSString *)name
 {
     //原图转成灰度图
-    cv::Mat src = [UIImage cvMatFromUIImage:faceImg];
+    cv::Mat src = [UIImage cvMatGrayFromUIImage:faceImg];
     
     NSSet *keys = [self.labelsDic keysOfEntriesPassingTest:^BOOL(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         
@@ -110,7 +110,7 @@ using namespace face;
     }else
     {
         label = self.labelsDic.allKeys.count;
-        self.labelsDic[@(label)] = name;
+        [self.labelsDic setObject:name forKey:@(label)];
     }
     
     std::vector<Mat> newImages = std::vector<cv::Mat>();;
@@ -119,7 +119,7 @@ using namespace face;
     newImages.push_back(src);
     newLabels.push_back((int)label);
     
-    _faceRecognizer->update(newImages, newImages);
+    _faceRecognizer->update(newImages, newLabels);
     
     [self labels];
 }

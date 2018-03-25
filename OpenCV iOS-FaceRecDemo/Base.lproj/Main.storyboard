@@ -43,11 +43,70 @@
                         <outlet property="bgImageView" destination="IbQ-hg-vRn" id="cUr-v4-ioT"/>
                         <outlet property="cameraView" destination="P5m-da-og1" id="nTY-sx-LxL"/>
                         <outlet property="tapBtn" destination="XLI-eZ-fHp" id="RmY-bc-Jpr"/>
+                        <segue destination="UcZ-aq-qmf" kind="presentation" identifier="RecognizeFace" id="aK5-GD-AKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615.20000000000005" y="61.619190404797607"/>
+            <point key="canvasLocation" x="-1006" y="66"/>
+        </scene>
+        <!--Face Rec View Controller-->
+        <scene sceneID="nYY-X5-l0F">
+            <objects>
+                <viewController id="UcZ-aq-qmf" customClass="HVFaceRecViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nvw-0e-Wa8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-tW-0jE">
+                                <rect key="frame" x="43" y="493" width="126" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="confidence" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75S-VR-LRH">
+                                <rect key="frame" x="212" y="493" width="105" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5a-a2-qQG">
+                                <rect key="frame" x="221" y="568" width="86" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="错误修正"/>
+                                <connections>
+                                    <action selector="didTapWrong:" destination="UcZ-aq-qmf" eventType="touchUpInside" id="Kwk-8b-a17"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rV-zJ-tex">
+                                <rect key="frame" x="0.0" y="20" width="375" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXT-Gf-6pZ">
+                                <rect key="frame" x="71" y="568" width="71" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="正确识别"/>
+                                <connections>
+                                    <action selector="didTapCorrect:" destination="UcZ-aq-qmf" eventType="touchUpInside" id="WY4-36-nLE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9O2-DL-B92"/>
+                    </view>
+                    <connections>
+                        <outlet property="confidenceLabel" destination="75S-VR-LRH" id="OYX-Zu-ac6"/>
+                        <outlet property="inputImageView" destination="6rV-zJ-tex" id="fwR-bY-ae3"/>
+                        <outlet property="nameLabel" destination="zpb-tW-0jE" id="WF2-HU-lIm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gso-ah-F06" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.200000000000003" y="55.322338830584712"/>
         </scene>
     </scenes>
 </document>

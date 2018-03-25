@@ -39,11 +39,6 @@
     self.view.userInteractionEnabled = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.faceDetUtil startCapture];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.faceDetUtil stopCapture];

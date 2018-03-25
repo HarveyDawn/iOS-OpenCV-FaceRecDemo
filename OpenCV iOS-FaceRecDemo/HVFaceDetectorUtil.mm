@@ -120,12 +120,12 @@
     
     //指定一个符合条件的人脸区域应该有多少个符合条件的邻居像素才被认为是一个可能的人脸区域，
     //拥有少于 minNeighbors 个符合条件的邻居像素的人脸区域会被拒绝掉。
-    int minNeighbors = 3;
+    int minNeighbors = 2;
     
     //设定检测人脸区域范围的最小值
-    cv::Size minSize(20,20);
+    cv::Size minSize(30,30);
     //设定检测人脸区域范围的最大值
-    cv::Size maxSize(180,180);
+    cv::Size maxSize(280,280);
     
     self->_faceDetector.detectMultiScale(smallImg, self->_faceRects,
                                          scalingFactor, minNeighbors, 0,

@@ -8,11 +8,14 @@
 
 #import "UIImage+OpenCV.h"
 #import "HVCameraViewController.h"
+#import "HVFaceRecViewController.h"
 #import "HVFaceDetectorUtil.h"
 
 @interface HVCameraViewController ()
 
 @property (nonatomic, strong) HVFaceDetectorUtil *faceDetUtil;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 @end
 
@@ -27,25 +30,24 @@
     self.tapBtn.layer.cornerRadius = 12.0;
     self.tapBtn.layer.borderWidth = 0.9;
     self.tapBtn.layer.borderColor = [UIColor blueColor].CGColor;
+    
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self
+                                 action:@selector(handleTap:)];
+    
+    [self.view addGestureRecognizer:_tapGestureRecognizer];
+    self.view.userInteractionEnabled = YES;
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.faceDetUtil startCapture];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.faceDetUtil stopCapture];
 }
-*/
-
 
 
 #pragma mark - UI Actions
@@ -66,7 +68,45 @@
 }
 
 
+- (void)handleTap:(UITapGestureRecognizer *)tapGesture {
+    
+    NSArray *detectedFaces = [self.faceDetUtil.detectedFaces copy];
+    CGSize windowSize = self.view.bounds.size;
+    
+    for (NSValue *val in detectedFaces) {
+        CGRect faceRect = [val CGRectValue];
+        
+        CGPoint tapPoint = [tapGesture locationInView:nil];
+        //scale tap point to 0.0 to 1.0
+        CGPoint scaledPoint = CGPointMake(tapPoint.x/windowSize.width, tapPoint.y/windowSize.height);
+        if(CGRectContainsPoint(faceRect, scaledPoint)){
+            NSLog(@"tapped on face: %@", NSStringFromCGRect(faceRect));
+            UIImage *img = [self.faceDetUtil faceWithIndex:[detectedFaces indexOfObject:val]];
+            [self performSegueWithIdentifier:@"RecognizeFace" sender:img];
+        }
+        else {
+            NSLog(@"tapped on no face");
+        }
+    }
+}
+
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqual:@"RecognizeFace"]) {
+        NSAssert([sender isKindOfClass:[UIImage class]],@"RecognizeFace segue MUST be sent with an image");
+        HVFaceRecViewController *frvc = segue.destinationViewController;
+        frvc.inputImage = sender;
+        
+    }
+}
+
+
 #pragma mark - cvChangeImageColor
+
 - (void)cvChangeImageColor
 {
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
@@ -80,7 +120,10 @@
 }
 
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 
 

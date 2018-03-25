@@ -13,7 +13,8 @@
 		B9001D422063F073003381E4 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9001D412063F073003381E4 /* haarcascade_frontalface_alt2.xml */; };
 		B953C774206546D9008F0456 /* HVFaceDetectorUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = B953C773206546D9008F0456 /* HVFaceDetectorUtil.mm */; };
 		B953C77620658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = B953C77520658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml */; };
-		B986AC76206677AA00A44DFF /* HVFaceRecognizerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.m */; };
+		B953DBE02068210D00B6CC8C /* HVFaceRecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B953DBDF2068210D00B6CC8C /* HVFaceRecViewController.m */; };
+		B986AC76206677AA00A44DFF /* HVFaceRecognizerUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.mm */; };
 		B9B893462062C1E900FC58E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B893452062C1E900FC58E8 /* AppDelegate.m */; };
 		B9B8934C2062C1E900FC58E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8934A2062C1E900FC58E8 /* Main.storyboard */; };
 		B9B8934E2062C1E900FC58E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B8934D2062C1E900FC58E8 /* Assets.xcassets */; };
@@ -39,8 +40,10 @@
 		B953C772206546D9008F0456 /* HVFaceDetectorUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVFaceDetectorUtil.h; sourceTree = "<group>"; };
 		B953C773206546D9008F0456 /* HVFaceDetectorUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HVFaceDetectorUtil.mm; sourceTree = "<group>"; };
 		B953C77520658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		B953DBDE2068210D00B6CC8C /* HVFaceRecViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVFaceRecViewController.h; sourceTree = "<group>"; };
+		B953DBDF2068210D00B6CC8C /* HVFaceRecViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HVFaceRecViewController.m; sourceTree = "<group>"; };
 		B986AC74206677AA00A44DFF /* HVFaceRecognizerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVFaceRecognizerUtil.h; sourceTree = "<group>"; };
-		B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HVFaceRecognizerUtil.m; sourceTree = "<group>"; };
+		B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HVFaceRecognizerUtil.mm; sourceTree = "<group>"; };
 		B9B893412062C1E800FC58E8 /* OpenCV iOS-FaceRecDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenCV iOS-FaceRecDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B893442062C1E800FC58E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9B893452062C1E900FC58E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,7 +52,6 @@
 		B9B893502062C1E900FC58E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B893522062C1E900FC58E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9B893532062C1E900FC58E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B9B8935B2062C24300FC58E8 /* OpenCV iOS-FaceRecDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCV iOS-FaceRecDemo-Prefix.pch"; sourceTree = "<group>"; };
 		B9B893602062C7CA00FC58E8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B9B893622062C7D000FC58E8 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		B9B893642062C7E300FC58E8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -108,9 +110,11 @@
 				B953C772206546D9008F0456 /* HVFaceDetectorUtil.h */,
 				B953C773206546D9008F0456 /* HVFaceDetectorUtil.mm */,
 				B986AC74206677AA00A44DFF /* HVFaceRecognizerUtil.h */,
-				B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.m */,
+				B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.mm */,
 				B9B8936E2062D1BC00FC58E8 /* HVCameraViewController.h */,
 				B9B8936F2062D1BC00FC58E8 /* HVCameraViewController.mm */,
+				B953DBDE2068210D00B6CC8C /* HVFaceRecViewController.h */,
+				B953DBDF2068210D00B6CC8C /* HVFaceRecViewController.m */,
 				B9B8934A2062C1E900FC58E8 /* Main.storyboard */,
 				B9B8934D2062C1E900FC58E8 /* Assets.xcassets */,
 				B9B8934F2062C1E900FC58E8 /* LaunchScreen.storyboard */,
@@ -118,7 +122,6 @@
 				B9B893532062C1E900FC58E8 /* main.m */,
 				B9001D412063F073003381E4 /* haarcascade_frontalface_alt2.xml */,
 				B953C77520658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml */,
-				B9B8935B2062C24300FC58E8 /* OpenCV iOS-FaceRecDemo-Prefix.pch */,
 				B9001D382062F67F003381E4 /* IMG_0036.jpg */,
 				B9001D372062F67F003381E4 /* IMG_1301.jpg */,
 				B9001D3D2062FBC6003381E4 /* IMG_1038.jpg */,
@@ -230,7 +233,8 @@
 			files = (
 				B953C774206546D9008F0456 /* HVFaceDetectorUtil.mm in Sources */,
 				B9F73C152066B3A800864F5E /* NSString+addition.m in Sources */,
-				B986AC76206677AA00A44DFF /* HVFaceRecognizerUtil.m in Sources */,
+				B953DBE02068210D00B6CC8C /* HVFaceRecViewController.m in Sources */,
+				B986AC76206677AA00A44DFF /* HVFaceRecognizerUtil.mm in Sources */,
 				B9B893542062C1E900FC58E8 /* main.m in Sources */,
 				B9F73C182066B3D600864F5E /* UIImage+OpenCV.mm in Sources */,
 				B9B893702062D1BC00FC58E8 /* HVCameraViewController.mm in Sources */,
@@ -378,8 +382,8 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCV iOS-FaceRecDemo/OpenCV iOS-FaceRecDemo-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV iOS-FaceRecDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -407,8 +411,8 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/OpenCV iOS-FaceRecDemo/OpenCV iOS-FaceRecDemo-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV iOS-FaceRecDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -8,7 +8,6 @@
 
 #ifdef __cplusplus
 #import <opencv2/opencv.hpp>
-#import <opencv2/face.hpp>
 #endif
 
 #import "HVFaceDetectorUtil.h"
@@ -23,8 +22,6 @@
     
     std::vector<cv::Rect> _faceRects;
     std::vector<cv::Mat> _faceImgs;
-    
-    cv::Ptr<cv::face::LBPHFaceRecognizer> _faceRecognizer;
 }
 
 @property (nonatomic, retain) CvVideoCamera *videoCamera;
@@ -162,12 +159,13 @@
         
         faceImages.push_back(smallImgROI.clone());
         
-        
+        //检测眼睛
         self->_eyesDetector.detectMultiScale( smallImgROI,
                                              nestedObjects,
                                              1.1, 2, 0,
                                              cv::Size(1, 1) );
         
+        //将检测到的眼睛画圆
         for( std::vector<cv::Rect>::const_iterator nr = nestedObjects.begin(); nr != nestedObjects.end(); nr++ )
         {
             center.x = cvRound((r->x + nr->x + nr->width*0.5)*scale);

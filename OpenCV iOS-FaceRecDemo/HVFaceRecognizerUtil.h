@@ -10,4 +10,14 @@
 
 @interface HVFaceRecognizerUtil : NSObject
 
++ (HVFaceRecognizerUtil *)faceRecWithFile:(NSString *)path;
+
+- (BOOL)writeFaceRecParamatersToFile:(NSString *)path;
+
+- (NSString *)predict:(UIImage *)image confidence:(double *)confidence;
+
+- (void)updateFace:(UIImage *)faceImg name:(NSString *)name;
+
+- (NSArray *)labels;
+
 @end

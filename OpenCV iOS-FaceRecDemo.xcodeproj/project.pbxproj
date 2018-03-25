@@ -13,7 +13,6 @@
 		B9001D422063F073003381E4 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9001D412063F073003381E4 /* haarcascade_frontalface_alt2.xml */; };
 		B953C774206546D9008F0456 /* HVFaceDetectorUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = B953C773206546D9008F0456 /* HVFaceDetectorUtil.mm */; };
 		B953C77620658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = B953C77520658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml */; };
-		B953DBD32067E7E800B6CC8C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B953DBD22067E7E800B6CC8C /* opencv2.framework */; };
 		B986AC76206677AA00A44DFF /* HVFaceRecognizerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.m */; };
 		B9B893462062C1E900FC58E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B893452062C1E900FC58E8 /* AppDelegate.m */; };
 		B9B8934C2062C1E900FC58E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8934A2062C1E900FC58E8 /* Main.storyboard */; };
@@ -40,7 +39,6 @@
 		B953C772206546D9008F0456 /* HVFaceDetectorUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVFaceDetectorUtil.h; sourceTree = "<group>"; };
 		B953C773206546D9008F0456 /* HVFaceDetectorUtil.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HVFaceDetectorUtil.mm; sourceTree = "<group>"; };
 		B953C77520658766008F0456 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
-		B953DBD22067E7E800B6CC8C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		B986AC74206677AA00A44DFF /* HVFaceRecognizerUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVFaceRecognizerUtil.h; sourceTree = "<group>"; };
 		B986AC75206677AA00A44DFF /* HVFaceRecognizerUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HVFaceRecognizerUtil.m; sourceTree = "<group>"; };
 		B9B893412062C1E800FC58E8 /* OpenCV iOS-FaceRecDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenCV iOS-FaceRecDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +72,6 @@
 			files = (
 				B9B8936D2062C80F00FC58E8 /* CoreVideo.framework in Frameworks */,
 				B9B8936B2062C80800FC58E8 /* CoreMedia.framework in Frameworks */,
-				B953DBD32067E7E800B6CC8C /* opencv2.framework in Frameworks */,
 				B9B893692062C7FC00FC58E8 /* AVFoundation.framework in Frameworks */,
 				B9B893672062C7F100FC58E8 /* CoreGraphics.framework in Frameworks */,
 				B9B893652062C7E300FC58E8 /* CoreImage.framework in Frameworks */,
@@ -133,7 +130,6 @@
 		B9B8935A2062C1F800FC58E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B953DBD22067E7E800B6CC8C /* opencv2.framework */,
 				B9B8936C2062C80F00FC58E8 /* CoreVideo.framework */,
 				B9B8936A2062C80800FC58E8 /* CoreMedia.framework */,
 				B9B893682062C7FC00FC58E8 /* AVFoundation.framework */,
